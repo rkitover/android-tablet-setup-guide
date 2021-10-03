@@ -12,18 +12,24 @@
     - [USB-C Hub](#usb-c-hub)
     - [Power Adapter](#power-adapter)
     - [KVM Switch](#kvm-switch)
+    - [Game Controller](#game-controller)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 ## Android Tablet Setup Guide
 
 This document aims to guide you in setting up your Android tablet as a useful
-and powerful computing device rather than a novelty toy. I will show you how to
-disable a lot of annoyances, install the best web browser, email client and a
-linux desktop.  Many annoyances will remain, due to the nature of Android, but
-you will quickly get used to them and they won't bother you much.
+and powerful computing device rather than a novelty toy. I will show you how
+to disable a lot of annoyances, install the best web browser, email client and
+a linux desktop. Some annoyances will remain, due to the nature of Android,
+but you will quickly get used to them and they won't interfere with your
+workflow.
+
+Rooting your device or flashing a different distribution of Android is not necessary for the purposes of this setup. You will need to turn on developer mode and do some things with `adb` however.
 
 There are many advantages to this setup. You will have an ARM device with incomparably better battery life than a laptop, while having almost the full power of a linux laptop, as well as full access to all mobile apps without having to switch to a different device.
+
+This guide is very opinionated, these are my personal preferences, feel free to make your own choices about the details of setup as long as you understand what you are doing.
 
 ### Hardware Requirements
 
@@ -113,7 +119,7 @@ The best reviewed ultra-portable keyboard available right now:
 
 **Microsoft Designer Compact Keyboard**
 
-https://smile.amazon.com/Microsoft-Designer-Compact-Keyboard-21Y-00031/dp/B08JM45NSM/
+https://www.amazon.com/Microsoft-Designer-Compact-Keyboard-21Y-00031/dp/B08JM45NSM/
 
 Any portable bluetooth keyboard will work, but avoid mini-keyboards that are
 missing many standard keyboard keys.
@@ -124,7 +130,7 @@ You can use any mouse, wired or wireless with a USB-C hub, but I recommend a blu
 
 **Logitech MX Anywhere 3**
 
-https://smile.amazon.com/Logitech-Performance-Scrolling-Customizable-Bluetooth/dp/B089NJQR5T/
+https://www.amazon.com/Logitech-Performance-Scrolling-Customizable-Bluetooth/dp/B089NJQR5T/
 
 When buying a mouse, keep in mind that extra features like programmable buttons will not work on Android. But the standard 3 buttons, scroll wheel, side scrolling and back/forward buttons will all work fine.
 
@@ -140,7 +146,7 @@ I recommend this one:
 
 **Nekteck 95W USB C Wall Charger with Multiple Ports**
 
-https://smile.amazon.com/Nekteck-Multiple-Plodable-Compatible-ThinkPad/dp/B085RHFR5S/
+https://www.amazon.com/Nekteck-Multiple-Plodable-Compatible-ThinkPad/dp/B085RHFR5S/
 
 This one also has a couple of USB ports to charge your phone or other devices.
 
@@ -150,6 +156,14 @@ You can use a USB-C KVM with power delivery to switch USB peripherals such as a 
 
 **IOGEAR - Access Pro 2-Port USB-C KVM Switch with Power Delivery**
 
-https://smile.amazon.com/IOGEAR-Access-Delivery-Compliant-GUD3C04/dp/B07WRN3FZN/
+https://www.amazon.com/IOGEAR-Access-Delivery-Compliant-GUD3C04/dp/B07WRN3FZN/
 
 For the power delivery function to work, your tablet has to be in port 1.
+
+#### Game Controller
+
+Most Android games do not work with a mouse and keyboard. A few work to a degree but are unplayable. A few have good support. Most games, however, work with a game controller. And the standard and most compatible type of game controller is an Xbox controller or Xbox compatible controller. And since the newest Xbox controllers have bluetooth and are excellent, you might as well get the real thing:
+
+**Xbox Wireless Controller**
+
+https://www.amazon.com/dp/B07GHWHFR5/
