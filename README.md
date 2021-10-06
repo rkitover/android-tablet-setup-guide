@@ -25,7 +25,15 @@
   - [Tips and Tricks for Using Android](#tips-and-tricks-for-using-android)
   - [Installing Termux](#installing-termux)
   - [Termux LXQT Native Desktop Setup](#termux-lxqt-native-desktop-setup)
+    - [LXQT Installation](#lxqt-installation)
+    - [LXQT Configuration](#lxqt-configuration)
+    - [QTerminal Configuration](#qterminal-configuration)
   - [Ubuntu KDE proot-distro Desktop Setup](#ubuntu-kde-proot-distro-desktop-setup)
+    - [Ubuntu installation](#ubuntu-installation)
+    - [KDE Configuration](#kde-configuration)
+    - [Terminator Terminal Configuration](#terminator-terminal-configuration)
+    - [Chromium Browser Installation](#chromium-browser-installation)
+  - [Kiwi Browser Launcher Configuration](#kiwi-browser-launcher-configuration)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
@@ -47,17 +55,17 @@ I am assuming for the purposes of this setup, that you are using a mid-range to 
 
 #### Android Tablet
 
-I am using the Samsung S7+ tablet with the keyboard cover case, this is currently the most powerful tablet on the market. But any mid-range tablet will work for this purpopse as well.
+I am using the Samsung S7+ tablet with the keyboard cover case, this is currently the most powerful tablet on the market. But any mid-range tablet will work for this purpose as well.
 
-If you are buying a tablet, I recommend getting one with plenty of internal storage or an SD card slot. If internal storage is small, but you have an SD card slot, also buy a high capacity SD card and format it as internal storage. The bigger the better, especially if you will do development.
+If you are buying a tablet, I recommend getting one with plenty of internal storage or an SD card slot. If internal storage is small, but you have an SD card slot, also buy a fast and high capacity SD card and format it as internal storage. The bigger the better, especially if you will do development.
 
-Make sure the tablet uses a USB-C port and **NOT** micro-usb. If your tablet uses micro-usb, you will still be able to follow this setup with a bluetooth keyboard and mouse, but you will not be able to connect USB devices with an OTG adapter and charge the tablet simultaneously. With a USB-C hub however, this is possible.
+Make sure the tablet uses a USB-C port and **NOT** micro-USB. If your tablet uses micro-USB, you will still be able to follow this setup with a bluetooth keyboard and mouse, but you will not be able to connect USB devices with an OTG adapter and charge the tablet simultaneously. With a USB-C hub however, this is possible.
 
 Make sure to get a case with a kickstand.
 
 #### Keyboard
 
-While you can connect any wired or wireless keyboard with a USB-C hub, a bluetooth keyboard is more practical, especially for portable use. The Samsung S7+ keyhboard cover case is adequate for portable use, but I would recommend a better keyboard for stationary use.
+While you can connect any wired or wireless keyboard with a USB-C hub, a bluetooth keyboard is more practical, especially for portable use. The Samsung S7+ keyboard cover case is adequate for portable use, but I would recommend a better keyboard for stationary use.
 
 Some good options for a bluetooth keyboard:
 
@@ -88,6 +96,7 @@ You can get a great full-size bluetooth keyboard:
 **GameSir GK300 Wireless Mechanical Gaming Keyboard**
 
 https://www.amazon.com/gp/product/B07PXJC64S/
+.
 
 I recommend getting a better wrist-rest than the one it comes with.
 
@@ -114,6 +123,7 @@ The best reviewed ultra-portable keyboard available right now:
 **Microsoft Designer Compact Keyboard**
 
 https://www.amazon.com/Microsoft-Designer-Compact-Keyboard-21Y-00031/dp/B08JM45NSM/
+.
 
 Any portable bluetooth keyboard will work, but avoid mini-keyboards that are missing many standard keyboard keys.
 
@@ -124,12 +134,13 @@ You can use any mouse, wired or wireless with a USB-C hub, but I recommend a blu
 **Logitech MX Anywhere 3**
 
 https://www.amazon.com/Logitech-Performance-Scrolling-Customizable-Bluetooth/dp/B089NJQR5T/
+.
 
 When buying a mouse, keep in mind that extra features like programmable buttons will not work on Android. But the standard 3 buttons, scroll wheel, side scrolling and back/forward buttons will all work fine.
 
 #### USB-C Hub
 
-For connecting USB devices such as a keyboard, mouse, etc., get any USB-C hub with power delivery. This is necessary to be able to charge your tablet while using USB devices. 100 Watt power delivery is preferrable to use the power adapter I mention below.
+For connecting USB devices such as a keyboard, mouse, etc., get any USB-C hub with power delivery. This is necessary to be able to charge your tablet while using USB devices. 100 Watt power delivery is preferable to use the power adapter I mention below.
 
 #### Power Adapter
 
@@ -140,16 +151,18 @@ I recommend this one:
 **Nekteck 95W USB C Wall Charger with Multiple Ports**
 
 https://www.amazon.com/Nekteck-Multiple-Plodable-Compatible-ThinkPad/dp/B085RHFR5S/
+.
 
 This one also has a couple of USB ports to charge your phone or other devices.
 
 #### KVM Switch
 
-You can use a USB-C KVM with power delivery to switch USB peripherals such as a keyboard and mouse and other devices between your tablet and other computer, laptop or desktop. For this you will need a power adapter that supports power delivery, like the one above. This KVM is excellent for this purpose:
+You can use a USB-C KVM with power delivery to switch USB peripherals such as a keyboard and mouse and other devices between your tablet and laptop or desktop. For this you will need a power adapter that supports power delivery, like the one above. This KVM is excellent for this purpose:
 
 **IOGEAR - Access Pro 2-Port USB-C KVM Switch with Power Delivery**
 
 https://www.amazon.com/IOGEAR-Access-Delivery-Compliant-GUD3C04/dp/B07WRN3FZN/
+.
 
 For the power delivery function to work, your tablet has to be connected to port 1.
 
@@ -158,6 +171,7 @@ For the power delivery function to work, your tablet has to be connected to port
 I recommend getting a monitor stand about 4 inches high or so for your tablet, I have this one:
 
 https://www.allsop.com/product/redmond-monitor-stand-14-inch-wide-platform-29248/
+.
 
 #### Game Controller
 
@@ -166,6 +180,7 @@ Most Android games do not work with a mouse and keyboard. A few work to a degree
 **Xbox Wireless Controller**
 
 https://www.amazon.com/dp/B07GHWHFR5/
+.
 
 ### Android OS and Applications Setup
 
@@ -177,11 +192,11 @@ https://www.amazon.com/dp/B07GHWHFR5/
 
 3. Go to `Settings -> Display` and turn on `Dark Mode`. If your version of Android does not have dark mode, I do not recommend using a dark mode app, those do not work very well, just turn on dark mode in your apps individually.
 
-4. Go to `Settings -> Display -> Screen Timeout` set to 10 minutes.
+4. Go to `Settings -> Display -> Screen Timeout` and set it to 10 minutes.
 
 5. Install your favorite launcher, I recommend Smart Launcher, many people like Nova and Lawnchair.
 
-6. Install Rotation Control by CrapeMyrtle from the Play store. Open the app and turn on `Start controlling` and `Start on boot`. From the notification area tap the landscape lock button which looks like this:
+6. Install Rotation Control by CrapeMyrtle from the Play store. Open the app and turn on `Start Controlling` and `Start on Boot`. From the notification area, click the landscape lock button which looks like this:
 
 ```
   ******
@@ -193,16 +208,17 @@ https://www.amazon.com/dp/B07GHWHFR5/
   *    /|\
   *******
 ```
+.
 
-7. Go to `Settings -> Lock Screen -> Screen Lock Type` set to none.
+7. Go to `Settings -> Lock Screen -> Screen Lock Type` and set it to none.
 
 8. Go to `Settings -> Display`. Turn off edge panels. Go to `Navigation Bar` and turn on swipe gestures, turn off gesture hints and turn off show button to hide keyboard. Click `More Options` to see a description of the gestures.
 
-9. Go to `Settings -> Display`, turn off adaptive brightness and eye comfort sheild. Set the brightness to a comfortable level that is not too high.
+9. Go to `Settings -> Display`, turn off adaptive brightness and eye comfort shield. Set the brightness to a comfortable level that is not too high.
 
 10. Go to `Settings -> Advanced Features`. Turn off everything, especially game launcher and daily board. Go to `Side Key` and turn off double press, set press and hold to power off menu.
 
-11. Hold the weather notifaction and disable the `current weather conditions` category, click save. Install your favorite weather app such as 1Weather. When you see a notification from the built-in `Weather` app, turn off that notification category as well.
+11. Hold the weather notification and disable the `current weather conditions` category, click save. Install your favorite weather app such as 1Weather. When you see a notification from the built-in `Weather` app, turn off that notification category as well.
 
 12. Go to `Settings -> About Tablet -> Software Information` tab `Build Number` 7 times to turn developer mode.
 
@@ -235,7 +251,7 @@ For the Samsung S7+ and possibly other Samsung tablets, run the following comman
 ```
 .
 
-This will disable the Samsung keyboards allowing Extenral Keyboard Helper Pro to work, as well as the incredibly annoying game optimizer extension.
+This will disable the Samsung keyboards allowing External Keyboard Helper Pro to work, as well as the incredibly annoying game optimizer extension.
 
 ##### Other Vendor Tablets
 
@@ -267,7 +283,7 @@ Then try to disable the software by other means, e.g. a Settings configuration o
 
 3. For a PDF viewer app, install Adobe Acrobat Reader.
 
-4. If you want to map CapsLock to Control or remap any other keys on your keyboard using Extenral Keyboard Helper Pro, follow the following steps. Go to `EKH Settings -> Advanced Settings -> Keyboard Mapping` and enable override special keys. Click `Customize Keyboard Mappings` and start a new custom layout called `Custom 1`. Click `Add New Key Mapping`. To map CapsLock to Control, click Keycode select Left Control, click the Change button and press CapsLock, it should display scancode 58. Click Save.
+4. If you want to map CapsLock to Control or remap any other keys on your keyboard using External Keyboard Helper Pro, follow the following steps. Go to `EKH Settings -> Advanced Settings -> Keyboard Mapping` and enable override special keys. Click `Customize Keyboard Mappings` and start a new custom layout called `Custom 1`. Click `Add New Key Mapping`. To map CapsLock to Control, click Keycode select Left Control, click the Change button and press CapsLock, it should display scancode 58. Click Save.
 
 #### Browser Setup
 
@@ -277,21 +293,21 @@ Then try to disable the software by other means, e.g. a Settings configuration o
 
 3. Go to `Settings -> Apps -> Kiwi Browser -> Install Unknown Apps` select `Allow From This Source`.
 
-4. Open Kiwi, go to `Settings -> Accessibility` select `Desktop mode by default`.
+4. Open Kiwi, go to `Settings -> Accessibility` select `Desktop Mode by Default`.
 
 5. Install your favorite chrome extensions from the chrome web store, such as uBlock Origin, I also like Night Eye for dark mode on web sites.
 
-6. Go to `Settings -> Apps -> YouTube -> Set as Default -> Open Supported Links` and choose `in other app`.
+6. Go to `Settings -> Apps -> YouTube -> Set as Default -> Open Supported Links` and choose `In Other App`.
 
 #### Email Client Setup
 
-1. Go to `Settings -> Apps -> Gmail` on the bottom tap disable.
+1. Go to `Settings -> Apps -> Gmail` and on the bottom click disable.
 
-2. Install Nine - Email & Calendar by 9Folders Inc.. Go through the initial setup to set up your account.
+2. Install Nine - Email & Calendar by 9Folders Inc.. Go through the initial setup to add your account.
 
-3. On the left pane, go to `Settings -> Account Settings -> Signature -> Manage Signatures -> Default Signature` delete the text and click save.
+3. On the left pane, go to `Settings -> Account Settings -> Signature -> Manage Signatures -> Default Signature` and delete the text and then click save.
 
-4. Go to `Settings -> VIP -> Notification` turn on silent notification and turn off LED light.
+4. Go to `Settings -> VIP -> Notification` and turn on silent notification and turn off LED light.
 
 5. If you do not get a lot of spam, go to `Settings -> Security -> Load Remote Images` and choose always display. Otherwise, you can whitelist sender images when you open an email.
 
@@ -303,7 +319,7 @@ When you get any unwanted notifications, you can hold the notification and turn 
 
 For some services, it is better to just use the website in Kiwi instead of the mobile app. For example, the Yelp app is terrible, and I just use the website.
 
-If you are a Discord user, I recommend against the Android app, just run discord in Kiwi or Chromium (see the [Ubuntu KDE proot-distro Desktop Setup](#ubuntu-kde-proot-distro-desktop-setup) section for how to set up Chromium.)
+If you are a Discord user, I recommend against the Android app, just run discord in Kiwi or Chromium (see the [Chromium Browser Installation](#chromium-browser-installation) section for how to set up Chromium.)
 
 Here are some essential keyboard shortcuts for Android:
 
@@ -318,6 +334,8 @@ Here are some essential keyboard shortcuts for Android:
 | shift + alt + tab | switch to previous app                  |
 | ctrl + alt + del  | reboot instantly                        |
 
+.
+
 In the overview screen, you can move an app up to close it, or down to switch to it.
 
 If you enabled immersive mode with SystemUI Tuner as per this guide, the home gesture will require swiping up from the bottom twice. But it's easier to just press win + enter on the keyboard.
@@ -331,7 +349,7 @@ If you enabled immersive mode with SystemUI Tuner as per this guide, the home ge
 ```bash
 pkg in -y unstable-repo x11-repo
 pkg up -y
-pkg in -y openssh man
+pkg in -y openssh man curl
 termux-setup-storage
 ```
 .
@@ -352,7 +370,7 @@ back-key = escape
 ```
 .
 
-5. Go to `Settings -> Apps -> Termux` and make sure that `Allow Background Activity` is turned **ON** and `Battery Optimization` is turned **OFF**.
+5. Go to `Settings -> Apps -> Termux` and make sure that `Allow Background Activity` is turned on and `Battery Optimization` is turned off.
 
 6. Go to `Settings -> Apps -> Termux -> Appear on Top` and turn on allow permission.
 
@@ -360,12 +378,323 @@ back-key = escape
 
 ### Termux LXQT Native Desktop Setup
 
+#### LXQT Installation
+
 1. Install TruVNC Secured Vnc Client Pro.
 
-2. Go to `Settings -> Apps -> TruVnc` and make sure that `Allow Background Activity` is turned **ON** and `Battery Optimization` is turned **OFF**.
+2. Go to `Settings -> Apps -> TruVnc` and make sure that `Allow Background Activity` is turned on and `Battery Optimization` is turned off.
+
+3. In Termux, run:
+
+```bash
+pkg in -y tigervnc lxqt qterminal xcompmgr
+```
+.
+
+4. Determine the native resolution of your tablet from the manufacturer specifications. For the Samsung S7+ it is 2800x1752.
+
+5. In Termux, run `mkdikr ~/.vnc` and create the file `~/.vnc/config` with the following contents:
+
+```
+SecurityTypes=None
+geometry=2800x1752
+```
+.
+
+The geometry should be the one you determined in step 4.
+
+6. Run `vncpasswd` and set your password to `termux`.
+
+7. Create the file `~/.Xresources` containing:
+
+```Xresources
+Xft.dpi: 168
+```
+.
+
+This sets the font scale to 175%, to later adjust it to a different value, multiply by 96, which is 100%.
+
+8. Create the file `~/.vnc/xstartup` with the following contents:
+
+```bash
+#!/data/data/com.termux/files/usr/bin/sh
+
+cd ~
+
+if [ -n "$TERMUX_VERSION" ]; then
+    export GDK_SCALE=1.75
+    export GDK_DPI_SCALE=1
+    export QT_SCALE_FACTOR=1.75
+    export QT_FONT_DPI=96
+    xrdb -merge ~/.Xresources
+    xcompmgr -n &
+
+    startlxqt
+else # proot-distro
+    startplasma-x11
+fi
+```
+.
+
+The first branch of the `if` is the Termux native desktop startup, and the second is for the following section, the proot-distro Ubuntu desktop.
+
+The `~/.Xresources` file above and the environment variables here set the scale, `GDK_SCALE` and `QT_SCALE_FACTOR` are set to `1.75` for 175% scale, you can later adjust these as well as `~/.Xresources` to change your scale, do not modify the other variables.
+
+9. Install Termux:Widget from F-Droid.
+
+10. Run these commands in Termux:
+
+```bash
+mkdir -p ~/.shortcuts/tasks
+cd ~/.shortcuts/tasks
+touch termux-lxqt
+chmod +x termux-lxqt
+```
+.
+
+Put the following in the `~/.shortcuts/tasks/termux-lxqt` file:
+
+```bash
+#!/data/data/com.termux/files/usr/bin/bash
+
+export SHELL=/data/data/com.termux/files/usr/bin/bash
+source ~/.bashrc
+
+rm -rf /data/data/com.termux/files/usr/tmp/.X1*
+(
+        sleep 3
+        am start -a android.intent.action.VIEW -d vnc://localhost:5901/C24bit/termux >/dev/null
+) &
+vncserver -fg
+```
+.
+
+11. Put Termux:Widget in the widget area of your launcher. The `termux-lxqt` task should appear there. Click on it to launch the LXQT desktop.
+
+12. Adjust your scale if necessary, as per instructions above, then logout and relaunch the task.
+
+13. After completing the following (LXQT Configuration)[#lxqt-configuration] section, follow the instructions in the [Kiwi Browser Launcher Configuration](#kiwi-browser-launcher-configuration) section. If you also complete the [Ubuntu KDE proot-distro Desktop Setup](#ubuntu-kde-proot-distro-desktop-setup) section and the [Chromium Browser Installation](#chromium-browser-installation) section, you will be able to use Chromium in LXQT.
+
+14. After you have configured the Kiwi launcher following the [Kiwi Browser Launcher Configuration](#kiwi-browser-launcher-configuration) section, go to `Preferences -> LXQT Settings -> File Associations -> Default Applications -> Web Browser -> Change` and select Kiwi Browser.
+
+#### LXQT Configuration
+
+1. In LXQT, go to `Preferences -> LXQT Settings -> Appearance` and set the following:
+
+`LXQT Theme`: Dark.
+
+`LXQT Theme -> Font -> DPI`: set to 168 for 175% scale or a multiple of 96 (which is 100%) for your chosen scale.
+
+Under `Widget Style` set:
+
+| Setting     | Value        |
+|-------------|--------------|
+| QT Style    | kvantum-dark |
+| GTK 2 Theme | Raleigh      |
+| GTK 3 Theme | Adwaita      |
+
+.
+
+2. Right click on the panel, select `Configure Panel`. Go to `Widgets`. Remove any or all of the following if desired: desktop changer, quick launch and show desktop.
+
+3. Right click on the panel, select `Configure Panel -> Panel`, select `auto-hide`, deselect `visible thin margin`.
+
+4. Go to `Preferences -> LXQT -> Settings -> Openbox Settings -> Mouse` and enable the following:
+
+  - Focus Windows When the Mouse Pointer Moves Over Them,
+  - Move Focus Under Mouse When Switching Desktops,
+  - Move Focus Under the Mouse when the Mouse is not Moving.
+
+5. Go to `Preferences -> LXQT Settings -> Openbox Settings -> Appearance` and deselect windows retain a border when undecorated.
+
+6. Right click on the clock on the panel and go to `Configure "World Clock"`.
+
+For `Time` set the following:
+
+| Setting            | Value    |
+|--------------------|----------|
+| Format             | Custom   |
+| Pad Hour With Zero | Select   |
+
+For `Date` set the following:
+
+| Setting          | Value    |
+|------------------|----------|
+| Position         | After    |
+| Format           | Custom   |
+| Show Day of Week | Select   |
+
+#### QTerminal Configuration
+
+1. Open QTerminal.
+
+2. Go to `Preferences -> Appearance` and set the following:
+
+| Setting                                    | Value             |
+|--------------------------------------------|-------------------|
+| Font                                       | DejaVu Sans Mono  |
+| Color Scheme                               | Tango             |
+| Scrollbar Position                         | No Scrollbar      |
+| Application Transparency                   | 30%               |
+| Show the Menu Bar                          | Deselect          |
+| Hide Window Borders                        | Select            |
+| Hide Tab Bar With Only One Tab             | Select            |
+| Show a Border Around the Current Terminal  | Deselect          |
+
+.
+
+3. Go to `Preferences -> Behavior` and set the following:
+
+|                                         |           |
+|-----------------------------------------|-----------|
+| History Size                            | 30000     |
+| Forcefully Disable Bracketed Paste Mode | Select    |
+| Trim Trailing Newlines in Pasted Text   | Select    |
+
+.
+
+4. Go to `Preferences -> Shortcuts` and set the following:
+
+| Action          | Keybind                |
+|-----------------|------------------------|
+| Paste Selection | ctrl + alt + shift + v |
+| Paste Clipboard | ctrl + alt + shift + p |
+| New Tab         | ctrl + alt + shift + t |
+| Next Tab        | ctrl + shift + right   |
+| Previous Tab    | ctrl + shift + left    |
+| Close Tab       | ctrl + alt + shift + q |
+
+.
+
+5. Edit the file `~/.config/openbox/rc.xml` and make the following changes:
+
+Under `Keybindings for desktop switching`, change the key definitions as follows:
+
+| Action            | Key         |
+|-------------------|-------------|
+| GoToDesktop left  | C-A-S-Left  |
+| GoToDesktop right | C-A-S-Right |
+| GoToDesktop up    | C-A-S-Up    |
+| GoToDesktop down  | C-A-S-Down  |
+| ToggleShowDesktop | C-A-d       |
+
+.
+
+Under `Keybindings for windows` set the key for the `Close` action to `C-A-c`.
+
+This tiling configuration is based on:
+
+https://thomashunter.name/posts/2019-01-27-treating-openbox-like-a-tiling-windowmanager
+.
+
+Under `Keybindings for running applications` paste the following:
+
+```xml
+    <keybind key="C-A-Up">
+      <action name="ToggleMaximize"/>
+    </keybind>
+
+    <keybind key="C-A-Down">
+      <action name="Iconify"/>
+    </keybind>
+
+    <keybind key="C-A-q">
+      <action name="Close"/>
+    </keybind>
+    <keybind key="C-A-Left">
+      <action name="Unmaximize" />
+      <action name="MoveResizeTo">
+        <x>0</x>
+        <y>0</y>
+        <width>50%</width>
+        <height>100%</height>
+      </action>
+    </keybind>
+
+    <keybind key="C-A-Right">
+      <action name="Unmaximize" />
+      <action name="MoveResizeTo">
+        <x>-0</x>
+        <y>0</y>
+        <width>50%</width>
+        <height>100%</height>
+      </action>
+    </keybind>
+```
+.
+
+This gives you the following keybinds:
+
+| Action     | Keybind            |
+|------------|--------------------|
+| Maximize   | ctrl + alt + up    |
+| Minimize   | ctrl + alt + down  |
+| Tile Right | ctrl + alt + right |
+| Tile Left  | ctrl + alt + left  |
+
+.
+
+In the `<applications>` section, which should be at the end of the file, add the following block:
+
+```xml
+  <application type="normal">
+    <maximized>true</maximized>
+    <decor>no</decor>
+  </application>
+```
+
+This removes decorations from maximized windows.
 
 ### Ubuntu KDE proot-distro Desktop Setup
 
 1. Install TruVNC Secured Vnc Client Pro.
 
-2. Go to `Settings -> Apps -> TruVnc` and make sure that `Allow Background Activity` is turned **ON** and `Battery Optimization` is turned **OFF**.
+2. Go to `Settings -> Apps -> TruVnc` and make sure that `Allow Background Activity` is turned on and `Battery Optimization` is turned off.
+
+#### Ubuntu installation
+
+#### KDE Configuration
+
+#### Terminator Terminal Configuration
+
+#### Chromium Browser Installation
+
+### Kiwi Browser Launcher Configuration
+
+1. Run the following commands in Termux:
+
+```bash
+mkdir -p ~/.local/share/applications ~/.local/share/icons/hicolor/72x72/apps ~/.local/bin
+cd ~/.local/share/icons/hicolor/72x72/apps
+curl -L 'https://github.com/kiwibrowser/src.next/raw/kiwi/chrome/android/java/res_chromium_base/mipmap-hdpi/app_icon.png' -o kiwi.png
+touch ~/.local/bin/kiwi
+chmod +x ~/.local/bin/kiwi
+```
+
+2. Put the following script into the `~/.local/bin/kiwi` file:
+
+```bash
+#!/data/data/com.termux/files/usr/bin/sh
+
+/data/data/com.termux/files/usr/bin/am start -n com.kiwibrowser.browser.dev/com.google.android.apps.chrome.Main -a android.intent.action.VIEW ${@:+-d} "$@" >/dev/null 2>&1
+```
+
+3. Put the following into the `~/.local/share/applications/kiwi.desktop` file:
+
+```ini
+[Desktop Entry]
+Encoding=UTF-8
+Version=1.0
+Type=Application
+Terminal=false
+X-KDE-Protocols=https,http,ftp
+Exec=/data/data/com.termux/files/home/.local/bin/kiwi %u
+Name=Kiwi Browser
+Icon=/data/data/com.termux/files/home/.local/share/icons/hicolor/72x72/apps/kiwi.png
+MimeType=text/html;text/xml;application/xhtml+xml;text/mml;x-scheme-handler/http;x-scheme-handler/https;application/x-www-browser;
+StartupNotify=true
+Categories=KDE;Network;WebBrowser;
+Keywords=web;browser;internet;
+```
+
+4. Set the default web browser to Kiwi Browser in your desktop environment.
