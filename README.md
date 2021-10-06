@@ -29,8 +29,9 @@
     - [LXQT Configuration](#lxqt-configuration)
     - [QTerminal Configuration](#qterminal-configuration)
   - [Ubuntu KDE proot-distro Desktop Setup](#ubuntu-kde-proot-distro-desktop-setup)
-    - [Ubuntu installation](#ubuntu-installation)
+    - [Ubuntu KDE Installation](#ubuntu-kde-installation)
     - [KDE Configuration](#kde-configuration)
+    - [Optional KDE Configuration](#optional-kde-configuration)
     - [Terminator Terminal Configuration](#terminator-terminal-configuration)
     - [Chromium Browser Installation](#chromium-browser-installation)
   - [Kiwi Browser Launcher Configuration](#kiwi-browser-launcher-configuration)
@@ -349,7 +350,7 @@ If you enabled immersive mode with SystemUI Tuner as per this guide, the home ge
 ```bash
 pkg in -y unstable-repo x11-repo
 pkg up -y
-pkg in -y openssh man curl
+pkg in -y openssh man curl pulseaudio
 termux-setup-storage
 ```
 .
@@ -647,13 +648,122 @@ This removes decorations from maximized windows.
 
 ### Ubuntu KDE proot-distro Desktop Setup
 
-1. Install TruVNC Secured Vnc Client Pro.
+First, do steps 1,2,4,5,6,8 and 9 from the [LXQT Installation](#lxqt-installation) section.
 
-2. Go to `Settings -> Apps -> TruVnc` and make sure that `Allow Background Activity` is turned on and `Battery Optimization` is turned off.
+#### Ubuntu KDE Installation
 
-#### Ubuntu installation
+1. Run these commands in Termux:
+
+```bash
+pkg in -y proot-distro
+proot-distro install ubuntu
+proot-distro clear-cache
+proot-distro login ubuntu
+apt -y update
+apt -y upgrade
+apt -y install kde-plasma-desktop ssh sudo tigervnc-standalone-server locales curl terminator fonts-ibm-plex
+apt -y remove plasma-discover
+apt -y autoremove
+locale-gen en_US.UTF-8 # Or your locale.
+useradd <YOUR-USER-NAME>
+chsh -s /bin/bash <YOUR-USER-NAME>
+passwd <YOUR-USER-NAME> # Set your password.
+echo '<YOUR-USER-NAME> ALL = (ALL) NOPASSWD: ALL' >/etc/sudoers.d/<YOUR-USER-NAME>
+exit
+```
+.
+
+Don't forget to substitute your actual username.
+
+2. Put the following into your `~/.bash_profile`:
+
+```bash
+if [ -z "$TERMUX_VERSION" ]; then
+    source ~/.bashrc
+fi
+```
+.
+
+3. Run the following in Termux:
+
+```bash
+proot-distro login ubuntu --user <YOUR-USER-NAME> --termux-home
+vncpasswd # Set password to "termux".
+exit
+```
+.
+
+4. Edit your `~/.bashrc` to set a different `PATH` depending on whether you are in Termux or in Ubuntu and make some other necessary tweaks, it should look something like this:
+
+```bash
+if [ -n "$TERMUX_VERSION" ]; then
+    export PATH=~/.local/bin:/data/data/com.termux/files/usr/bin
+else
+    export PATH=~/.local/bin:/usr/bin:/usr/local/bin:/sbin:/usr/sbin:/usr/local/sbin
+fi
+
+if [ -z "$TERMUX_VERSION" ]; then
+    mkdir -p /tmp/runtime-<YOUR-USER-NAME>
+    chmod 700 /tmp/runtime-<YOUR-USER-NAME>
+    export XDG_RUNTIME_DIR=/tmp/runtime-<YOUR-USER-NAME>
+fi
+
+if [ -n "$TERMUX_VERSION" ]; then
+    pulseaudio --start
+else
+    export PULSE_SERVER=127.0.0.1
+fi
+```
+.
+
+Don't forget to substitute your actual username.
+
+5. Edit the file `/data/data/com.termux/files/usr/etc/pulse/default.pa` and change the line that looks like this:
+
+```
+#load-module module-native-protocol-tcp
+```
+
+to remove the leading `#` character, so it looks like this:
+
+```
+load-module module-native-protocol-tcp
+```
+.
+
+6. Run these commands in Termux:
+
+
+```bash
+mkdir -p ~/.shortcuts/tasks
+cd ~/.shortcuts/tasks
+touch ubuntu-kde
+chmod +x ubuntu-kde
+```
+.
+
+7. Put the following into the file `~/.shortcuts/tasks/ubuntu-kde`:
+
+```bash
+#!/data/data/com.termux/files/usr/bin/sh
+
+pulseaudio --start
+rm -rf /data/data/com.termux/files/usr/tmp/.X1*
+(
+    sleep 4
+    am start -a android.intent.action.VIEW -d vnc://localhost:5901/C24bit/termux >/dev/null
+) &
+proot-distro login ubuntu --user <YOUR-USER-NAME> --termux-home --fix-low-ports --shared-tmp -- vncserver -fg
+```
+.
+
+Don't forget to substitute your actual username.
+
+8. Put Termux:Widget into the widget area of your launcher and launch the ubuntu-kde task to open the desktop.
 
 #### KDE Configuration
+
+#### Optional KDE Configuration
 
 #### Terminator Terminal Configuration
 
@@ -697,4 +807,6 @@ Categories=KDE;Network;WebBrowser;
 Keywords=web;browser;internet;
 ```
 
-4. Set the default web browser to Kiwi Browser in your desktop environment.
+4. Run `update-desktop-database`.
+
+5. Set the default web browser to Kiwi Browser in your desktop environment.
