@@ -31,8 +31,8 @@
   - [Ubuntu KDE proot-distro Desktop Setup](#ubuntu-kde-proot-distro-desktop-setup)
     - [Ubuntu KDE Installation](#ubuntu-kde-installation)
     - [KDE Configuration](#kde-configuration)
-    - [Optional KDE Configuration](#optional-kde-configuration)
     - [Terminator Terminal Configuration](#terminator-terminal-configuration)
+    - [Optional KDE Configuration](#optional-kde-configuration)
     - [Chromium Browser Installation](#chromium-browser-installation)
   - [Kiwi Browser Launcher Configuration](#kiwi-browser-launcher-configuration)
 
@@ -763,11 +763,150 @@ Don't forget to substitute your actual username.
 
 #### KDE Configuration
 
-#### Optional KDE Configuration
+1. Launch the ubuntu-kde task to open the KDE desktop.
+
+2. Go to `Settings -> Display and Monitor` and set global scale to 175% or your chosen scale. Logout and relaunch the task for it to take effect. You may need to experiment a bit to find the right scale for your tablet.
+
+3. Go to `Settings -> Workspace Behavior -> Screen Locking` and turn off screen lock as well as lock after sleep. Disable the keyboard shortcut.
+
+4. Go to `Settings -> Appearance -> Global Theme` and choose Breeze Dark.
+
+5. Right click on the panel, click more options, choose auto hide. Press the red close button on the bottom and top panels.
+
+6. Go to `Settings -> Shortcuts -> Shortcuts -> Kwin` and set the following keybindings:
+
+| Action                  | Settings                                        |
+|-------------------------|-------------------------------------------------|
+| Quick tile window right | disable meta + right, set to ctrl + alt + right |
+| Quick tile window left  | disable meta + left,  set to ctrl + alt + left  |
+| Maximize window         | disable meta + down,  set to ctrl + alt + up    |
+| Show desktop            | disable meta + d,     set to ctrl + alt + d     |
+| Close window            | disable alt + f4,     set to ctrl + alt + c     |
+
+and click apply.
+
+7. Go to `Settings -> Window Management -> Window Behavior` and set window activation policy to focus follows mouse. Click apply.
+
+8. Follow the steps in the [Kiwi Browser Launcher Configuration](#kiwi-browser-launcher-configuration) section and then go to `Settings -> Applications -> Default Applications` and select Kiwi Browser for web browser.
 
 #### Terminator Terminal Configuration
 
+1. Open the Terminator terminal and right click within the window, go to `Preferences`. 
+
+Under `Global` set:
+
+| Setting                            | Value        |
+|------------------------------------|--------------|
+| Unfocused terminal font brightness | 100%         |
+| Mouse focus                        | follow mouse |
+| Tabs homogeneous                   | deselect     |
+| Hide size from title               | select       |
+
+.
+
+Under `Profiles -> Default -> General` set:
+
+| Setting                     | Value                          |
+|-----------------------------|--------------------------------|
+| Use system fixed width font | deselect                       |
+| Font                        | IBM Plex Mono Regular, size 11 |
+| Show titlebar               | deselect                       |
+| Cursor blink                | deselect                       |
+
+.
+
+Other fonts you can try, to see which one you like better, are Hack and DejaVu Sans Mono. The Ubuntu package for Hack is `fonts-hack-ttf`, and the packages for DejaVu fonts are `fonts-dejavu-core` and `fonts-dejavu-extra`.
+
+Under `Profiles -> Default -> Colors -> Palette -> Built-in Schemes` select Tango.
+
+Under `Profiles -> Default -> Background` select transparent background and set shade background to `0.70`.
+
+Under `Profiles -> Default -> Scrolling` set scrollbar is disabled, and set scrollback to `30000`.
+
+Under `Keybindings` set the following:
+
+| Action            | Keybind                        |
+|-------------------|--------------------------------|
+| Copy              | shift + ctrl + alt + c         |
+| Paste clipboard   | shift + ctrl + alt + p         |
+| Paste selection   | shift + ctrl + alt + v         |
+| New tab           | shift + ctrl + alt + t         |
+| Resize right      | press backspace to disable     |
+| Resize left       | press backspace to disable     |
+| Next tab          | shift + ctrl + right           |
+| Previous tab      | shift + ctrl + left            |
+| Close term        | shift + ctrl + alt + q         |
+
+, paste selection may not be available yet in the current Terminator package.
+
+2. In KDE go to `Settings -> Window Management -> Window Rules`, click Add New, and set the following:
+
+| Setting                     | Value                     |
+|-----------------------------|---------------------------|
+| Description                 | Undecorate Terminator     |
+| Window class                | "Terminator", Exact Match |
+| Match whole window class    | No                        |
+
+. Click Add Property and under Appearance select No titlebar and frame. Select Apply Initially - Yes.
+
+Click apply, restart Terminator.
+
+#### Optional KDE Configuration
+
+1. To change your time format and measurement units to the standard, go to `Settings -> Regional Settings -> Formats` and enable detailed settings. Choose the Germany locale with your language for time and measurement units, for English this would be `Germany English (en_DE)`. Then run the following commands in the terminal:
+
+```bash
+sudo locale-gen de_DE.UTF-8
+sudo localedef -i de_DE -f UTF-8 en_DE.UTF-8
+```
+
+adjusting for your language, then logout of KDE and relaunch the task.
+
 #### Chromium Browser Installation
+
+1. Go to https://github.com/ELWAER-M/install-chromium-without-snap and follow the instructions to run the script and install Chromium.
+
+2. Run the following:
+
+```bash
+mkdir -p ~/.local/share/icons/hicolor/256x256/apps
+cd ~/.local/share/icons/hicolor/256x256/apps
+cp /usr/share/icons/hicolor/256x256/apps/chromium.png .
+cd
+touch ~/.local/bin/chromium
+chmod +x ~/.local/bin/chromium
+```
+.
+
+3. Put this script into the `~/.local/bin/chromium` file:
+
+```bash
+#!/data/data/com.termux/files/usr/bin/sh
+
+set -- /usr/bin/chromium --no-sandbox --enable-features=WebUIDarkMode --force-dark-mode "$@"
+
+if [ -n "$TERMUX_VERSION" ]; then
+    pulseaudio --start
+    proot-distro login ubuntu --user <YOUR-USER-NAME> --termux-home --fix-low-ports --shared-tmp -- "$@"
+else
+    "$@"
+fi
+```
+and substitute your actual username.
+
+4. Edit the file `~/.local/share/applications/chromium.desktop` and change the `Exec` and `Icon` fields as follows:
+
+```ini
+Exec=/data/data/com.termux/files/home/.local/bin/chromium %U
+Icon=/data/data/com.termux/files/home/.local/share/icons/hicolor/256x256/apps/chromium.png
+```
+.
+
+5. Open Chromium and click the three dots on the top right, go to Settings, click advanced and under `Downloads -> Location` click change. Click other locations and navigate to `computer -> data -> data -> com.termux -> files -> home -> storage -> downloads`, click open.
+
+6. In Chromium Settings under Startup set continue where you left off.
+
+You can use this Chromium setup in both a Termux native desktop and in Ubuntu.
 
 ### Kiwi Browser Launcher Configuration
 
