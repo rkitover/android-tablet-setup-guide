@@ -661,6 +661,7 @@ First, do steps 1,2,4,5,6,8 and 9 from the [LXQT Installation](#lxqt-installatio
 1. Run these commands in Termux:
 
 ```bash
+mkdir ~/.local/share/applications
 pkg in -y proot-distro
 proot-distro install ubuntu
 proot-distro clear-cache
