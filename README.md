@@ -350,7 +350,7 @@ If you enabled immersive mode with SystemUI Tuner as per this guide, the home ge
 ```bash
 pkg in -y unstable-repo x11-repo
 pkg up -y
-pkg in -y openssh man curl pulseaudio
+pkg in -y openssh man curl pulseaudio bash-completion
 termux-setup-storage
 ```
 .
@@ -371,11 +371,17 @@ back-key = escape
 ```
 .
 
-5. Go to `Settings -> Apps -> Termux` and make sure that `Allow Background Activity` is turned on and `Battery Optimization` is turned off.
+5. Edit your `~/.bashrc` and add the following:
 
-6. Go to `Settings -> Apps -> Termux -> Appear on Top` and turn on allow permission.
+```bash
+source ${TERMUX_VERSION:+/data/data/com.termux/files}/usr/share/bash-completion/bash_completion
+```
 
-7. To set up a Linux desktop, you can follow either of the next two sections, or both, they do not conflict. If you set up both, you will be able to run either and use Chromium from the Termux native desktop.
+6. Go to `Settings -> Apps -> Termux` and make sure that `Allow Background Activity` is turned on and `Battery Optimization` is turned off.
+
+7. Go to `Settings -> Apps -> Termux -> Appear on Top` and turn on allow permission.
+
+8. To set up a Linux desktop, you can follow either of the next two sections, or both, they do not conflict. If you set up both, you will be able to run either and use Chromium from the Termux native desktop.
 
 ### Termux LXQT Native Desktop Setup
 
@@ -661,7 +667,7 @@ proot-distro clear-cache
 proot-distro login ubuntu
 apt -y update
 apt -y upgrade
-apt -y install kde-plasma-desktop ssh sudo tigervnc-standalone-server locales curl terminator fonts-ibm-plex
+apt -y install kde-plasma-desktop ssh sudo tigervnc-standalone-server locales curl terminator fonts-ibm-plex bash-completion
 apt -y remove plasma-discover
 apt -y autoremove
 locale-gen en_US.UTF-8 # Or your locale.
