@@ -40,15 +40,23 @@
 
 ## Android Tablet Setup Guide
 
-This document aims to guide you in setting up your Android tablet as a useful and powerful computing device rather than a novelty toy. I will show you how to disable a lot of annoyances, install the best web browser, email client and a linux desktop. Some annoyances will remain, due to the nature of Android, but you will quickly get used to them and they won't interfere with your workflow.
+This document aims to guide you in setting up your Android tablet as a useful and powerful computing device rather than an expensive toy. I will show you how to disable a lot of annoyances, install the best web browser, email client and a linux desktop. Some annoyances will remain, due to the nature of Android, but you will quickly get used to them and they won't interfere with your workflow.
 
 Rooting your device or flashing a different distribution of Android is not necessary for the purposes of this setup. You will need to turn on developer mode and do some things with `adb` however.
+
+If your device supports this, and you do want to flash a community Android distribution, there are many choices available, the most popular being LineageOS. This will also give you root.
+
+If you want to root your device and a method is available, you will gain additional capabilities such as backups and access to additional Termux software. Most people do not need this these days.
+
+You should also be aware that on some devices such as Samsung ones, rooting or flashing a different firmware will void your warranty.
 
 There are many advantages to this setup. You will have an ARM device with incomparably better battery life than a laptop, while having almost the full power of a linux laptop, as well as full access to all mobile apps without having to switch to a different device.
 
 This guide is very opinionated, these are my personal preferences, feel free to make your own choices about the details of setup as long as you understand what you are doing.
 
-I am using Android 11, previous versions will not have all the features described here, if you are using one you will need to make any necessary adjustments.
+I am using Android 11 on a Samsung tablet, previous versions and other vendor distributions will not have all the features described here in the same places described here, if you are using such a device you will need to make any necessary adjustments.
+
+This setup will also work with other Android devices that you use with a keyboard and mouse/trackball, such as PC and Raspberry Pi versions of Android and Android TV devices such as the NVIDIA SHIELD. Some phones, such as ones made by Samsung, can also output video through a USB-C hub or adapter, and along with a bluetooth mouse and keyboard you would be able to follow this setup with such a configuration. Using a Linux graphical desktop on a tiny phone screen with a touch keyboard is not practical however.
 
 ### Hardware Requirements
 
@@ -211,6 +219,8 @@ https://www.amazon.com/dp/B07GHWHFR5/
 ```
 .
 
+Tap the lock button again when using the tablet as a tablet.
+
 7. Go to `Settings -> Lock Screen -> Screen Lock Type` and set it to none.
 
 8. Go to `Settings -> Display`. Turn off edge panels. Go to `Navigation Bar` and turn on swipe gestures, turn off gesture hints and turn off show button to hide keyboard. Click `More Options` to see a description of the gestures.
@@ -254,6 +264,8 @@ For the Samsung S7+ and possibly other Samsung tablets, run the following comman
 
 This will disable the Samsung keyboards allowing External Keyboard Helper Pro to work, as well as the incredibly annoying game optimizer extension.
 
+You will need to install your favorite touch keyboard to replace the Samsung touch keyboard, such as Swiftkey.
+
 ##### Other Vendor Tablets
 
 You will have to do some experimentation to determine which vendor software to disable. Disabling some apps can break parts of the system, like sections of Settings, and it may be better to turn them off by other means, using a Settings configuration, turning off the notifications, etc..
@@ -280,9 +292,9 @@ Then try to disable the software by other means, e.g. a Settings configuration o
 
 1. To set your time format to 24-hour and your time zone to GMT, go to `Settings -> General Management -> Date and Time`, turn off automatic time zone, turn on use 24-hour format. Go to `Time Zone -> Region` and select Iceland.
 
-2. If you want to use a calendar service to remind you of your appointments etc., install Google Calendar.
+2. If you want to use a calendar service to remind you of your appointments etc., install Google Calendar. To use a service other than Google to sync your contacts and calendar, consider DAVx from F-Droid by https://f-droid.org/en/packages/at.bitfire.davdroid/ .
 
-3. For a PDF viewer app, install Adobe Acrobat Reader.
+3. For a PDF viewer app, install Adobe Acrobat Reader. Document Viewer from F-Droid is also recommended by some people https://f-droid.org/en/packages/org.sufficientlysecure.viewer/ .
 
 4. If you want to map CapsLock to Control or remap any other keys on your keyboard using External Keyboard Helper Pro, follow the following steps. Go to `EKH Settings -> Advanced Settings -> Keyboard Mapping` and enable override special keys. Click `Customize Keyboard Mappings` and start a new custom layout called `Custom 1`. Click `Add New Key Mapping`. To map CapsLock to Control, click Keycode select Left Control, click the Change button and press CapsLock, it should display scancode 58. Click Save.
 
@@ -320,7 +332,7 @@ When you get any unwanted notifications, you can hold the notification and turn 
 
 For some services, it is better to just use the website in Kiwi instead of the mobile app. For example, the Yelp app is terrible, and I just use the website.
 
-If you are a Discord user, I recommend against the Android app, just run discord in Kiwi or Chromium (see the [Chromium Browser Installation](#chromium-browser-installation) section for how to set up Chromium.)
+If you are a Discord user, I recommend against the Android app, just run discord in Kiwi or Chromium.
 
 Here are some essential keyboard shortcuts for Android:
 
@@ -337,7 +349,7 @@ Here are some essential keyboard shortcuts for Android:
 
 .
 
-In the overview screen, you can move an app up to close it, or down to switch to it.
+In the overview screen, you can move an app up to close it, or double click or slide it down to open it.
 
 If you enabled immersive mode with SystemUI Tuner as per this guide, the home gesture will require swiping up from the bottom twice. But it's easier to just press win + enter on the keyboard.
 
@@ -354,6 +366,7 @@ pkg in -y openssh man curl pulseaudio bash-completion
 termux-setup-storage
 ```
 .
+You will be asked to grant permission to access storage to Termux, allow it.
 
 3. Install an editor of your choice for editing configuration files, if you are new to UNIX-like operating systems, install `nano`, it is simple to use. Install it with this command:
 
@@ -375,6 +388,12 @@ back-key = escape
 
 ```bash
 source ${TERMUX_VERSION:+/data/data/com.termux/files}/usr/share/bash-completion/bash_completion
+
+export DISPLAY=:1
+
+if [ -n "$TERMUX_VERSION" ]; then
+    export XDG_RUNTIME_DIR=$TMPDIR
+fi
 ```
 
 6. Go to `Settings -> Apps -> Termux` and make sure that `Allow Background Activity` is turned on and `Battery Optimization` is turned off.
@@ -708,7 +727,9 @@ else
     export PATH=~/.local/bin:/usr/bin:/usr/local/bin:/sbin:/usr/sbin:/usr/local/sbin
 fi
 
-if [ -z "$TERMUX_VERSION" ]; then
+if [ -n "$TERMUX_VERSION" ]; then
+    export XDG_RUNTIME_DIR=$TMPDIR
+else
     mkdir -p /tmp/runtime-<YOUR-USER-NAME>
     chmod 700 /tmp/runtime-<YOUR-USER-NAME>
     export XDG_RUNTIME_DIR=/tmp/runtime-<YOUR-USER-NAME>
