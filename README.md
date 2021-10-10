@@ -744,6 +744,8 @@ if [ -n "$TERMUX_VERSION" ]; then
 else
     export PULSE_SERVER=127.0.0.1
 fi
+
+alias ubuntu='proot-distro login ubuntu --user <YOUR-USER-NAME> --termux-home --fix-low-ports --shared-tmp'
 ```
 .
 
