@@ -359,14 +359,14 @@ If you enabled immersive mode with SystemUI Tuner as per this guide, the home ge
 
 ### Installing Termux
 
-1. Install Termux and Termux:Styling from F-Droid.
+1. Install Termux, Termux:API and Termux:Styling from F-Droid.
 
 2. In Termux, run these commands:
 
 ```bash
 pkg in -y unstable-repo x11-repo
 pkg up -y
-pkg in -y openssh man curl pulseaudio bash-completion
+pkg in -y termux-api openssh man curl pulseaudio bash-completion
 termux-setup-storage
 ```
 .
