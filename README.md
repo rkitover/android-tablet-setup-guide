@@ -749,6 +749,8 @@ alias ubuntu='proot-distro login ubuntu --user <YOUR-USER-NAME> --termux-home --
 ```
 .
 
+This also gives you the `ubuntu` alias which you can use to login to your Ubuntu environment from Termux and a Termux native desktop, from there you can also launch graphical programs.
+
 Don't forget to substitute your actual username.
 
 5. Edit the file `/data/data/com.termux/files/usr/etc/pulse/default.pa` and change the line that looks like this:
