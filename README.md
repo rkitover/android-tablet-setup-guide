@@ -203,7 +203,11 @@ https://www.amazon.com/dp/B07GHWHFR5/
 
 4. Go to `Settings -> Display -> Screen Timeout` and set it to 10 minutes.
 
-5. Install your favorite launcher, I recommend Smart Launcher, many people like Nova and Lawnchair.
+5. Install your favorite launcher, I use Smart Launcher, Nova and Lawnchair are very popular, and there are many good options available, here are some reviews:
+
+https://www.tomsguide.com/round-up/best-android-launchers ,
+
+https://www.androidcentral.com/best-android-launchers .
 
 6. Install Rotation Control by CrapeMyrtle from the Play store. Open the app and turn on `Start Controlling` and `Start on Boot`. From the notification area, click the landscape lock button which looks like this:
 
@@ -262,9 +266,9 @@ For the Samsung S7+ and possibly other Samsung tablets, run the following comman
 ```
 .
 
-This will disable the Samsung keyboards allowing External Keyboard Helper Pro to work, as well as the incredibly annoying game optimizer extension.
+This will disable the Samsung keyboards allowing External Keyboard Helper Pro to work, as well as disabling the incredibly annoying game optimizer extension.
 
-You will need to install your favorite touch keyboard to replace the Samsung touch keyboard, such as Swiftkey.
+You will need to install your favorite touch keyboard to replace the Samsung touch keyboard, such as Swiftkey. There is currently no good solution for automatically disabling an on-screen keyboard when a physical keyboard is connected, so you will have to manually switch your default keyboard from External Keyboard Helper Pro to your keyboard when using the tablet as a tablet and back in `Settings -> General Management -> Keyboard List and Default -> Default Keyboard`.
 
 ##### Other Vendor Tablets
 
@@ -913,7 +917,6 @@ chmod +x ~/.local/bin/chromium
 set -- /usr/bin/chromium --no-sandbox --enable-features=WebUIDarkMode --force-dark-mode "$@"
 
 if [ -n "$TERMUX_VERSION" ]; then
-    pulseaudio --start
     proot-distro login ubuntu --user <YOUR-USER-NAME> --termux-home --fix-low-ports --shared-tmp -- "$@"
 else
     "$@"
