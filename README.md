@@ -13,6 +13,7 @@
     - [Power Adapter](#power-adapter)
     - [KVM Switch](#kvm-switch)
     - [Stand](#stand)
+    - [Audio Interface](#audio-interface)
     - [Game Controller](#game-controller)
   - [Android OS and Applications Setup](#android-os-and-applications-setup)
     - [Initial Setup](#initial-setup)
@@ -57,6 +58,8 @@ This guide is very opinionated, these are my personal preferences, feel free to 
 I am using Android 11 on a Samsung tablet, previous versions and other vendor distributions will not have all the features described here in the same places described here, if you are using such a device you will need to make any necessary adjustments.
 
 This setup will also work with other Android devices that you use with a keyboard and mouse/trackball, such as PC and Raspberry Pi versions of Android and Android TV devices such as the NVIDIA SHIELD. Some phones, such as ones made by Samsung, can also output video through a USB-C hub or adapter, and along with a bluetooth mouse and keyboard you would be able to follow this setup with such a configuration. Using a Linux graphical desktop on a tiny phone screen with a touch keyboard is not practical however.
+
+If you have any issues with these instructions or configuration code, feel free to open an issue on the GitHub project page, or send me corrections and additions via pull request.
 
 ### Hardware Requirements
 
@@ -181,6 +184,53 @@ I recommend getting a monitor stand about 4 inches high or so for your tablet, I
 
 https://www.allsop.com/product/redmond-monitor-stand-14-inch-wide-platform-29248/
 .
+
+#### Audio Interface
+
+I use the FiiO BTR5 portable bluetooth DAC/amp with Etymotic IEMs.
+
+**FiiO BTR5**
+
+https://www.amazon.com/FiiO-BTR5-384K-Bluetooth5-0-Headphone-Unbalanced/dp/B07ZK3M6XK/
+
+**Etymotic ER4XR**
+
+https://www.amazon.com/Etymotic-Research-ER4XR-Extended-Response/dp/B01GW786B4/
+
+I recommend getting a 2.5mm MMCX balanced replacement cable for the IEMs and a lanyard.
+
+Balanced replacement cable:
+
+https://www.amazon.com/gp/product/B07QRF4QFW/
+.
+
+Lanyard:
+
+https://www.amazon.com/gp/product/B08D67S21Z/
+.
+
+The BTR5 is powerful enough to drive more comfortable quality on-ear headphones for extended use at home with a balanced cable. For such a pair of headphones I recommend these:
+
+**Massdrop Sennheiser HD 6XX**
+
+https://drop.com/buy/massdrop-sennheiser-hd6xx
+
+Balanced cable:
+
+https://www.amazon.com/Youkamoo-Balanced-Replacement-Compatible-Headphones/dp/B096LXP96Z/
+.
+
+However, for quality sound it is be better to connect a DAC and amp via a USB-C hub for these headphones.
+
+**Topping E30 DAC**
+
+https://www.amazon.com/Topping-E30-Optical-Coaxial-Desktop/dp/B0865GJLB5/
+
+**Schiit Magni Heresy amp**
+
+https://www.schiit.com/products/magni-1
+
+make sure to select the heresy version.
 
 #### Game Controller
 
@@ -324,11 +374,13 @@ Then try to disable the software by other means, e.g. a Settings configuration o
 
 3. On the left pane, go to `Settings -> Account Settings -> Signature -> Manage Signatures -> Default Signature` and delete the text and then click save.
 
-4. Go to `Settings -> VIP -> Notification` and turn on silent notification and turn off LED light.
+4. Go to `Settings -> General -> Message Body -> Open Links` and choose External Browser.
 
-5. If you do not get a lot of spam, go to `Settings -> Security -> Load Remote Images` and choose always display. Otherwise, you can whitelist sender images when you open an email.
+5. Go to `Settings -> VIP -> Notification` and turn on silent notification and turn off LED light.
 
-6. Go to `Settings -> Account -> Sync Schedule -> Sync Frequency` and set to every 5 minutes, also turn on auto sync data and sync when roaming.
+6. If you do not get a lot of spam, go to `Settings -> Security -> Load Remote Images` and choose always display. Otherwise, you can whitelist sender images when you open an email.
+
+7. Go to `Settings -> Account -> Sync Schedule -> Sync Frequency` and set to every 5 minutes, also turn on auto sync data and sync when roaming.
 
 ### Tips and Tricks for Using Android
 
