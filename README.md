@@ -798,6 +798,10 @@ else
 fi
 
 alias ubuntu='proot-distro login ubuntu --user <YOUR-USER-NAME> --termux-home --fix-low-ports --shared-tmp'
+
+if [ -z "$TERMUX_VERSION" ]; then
+    alias ps='ps -e'
+fi
 ```
 .
 
