@@ -299,6 +299,8 @@ Tap the lock button again when using the tablet as a tablet.
 
 18. Install F-Droid from https://www.f-droid.org/ .
 
+19. Install the apps Absolutely Nothing by SSTeam and Assist Mapper by Amir Zaidi. Go to `Settings -> Apps -> Choose Default Apps -> Digital Assistant App -> Device Assistance App` and choose Assist Mapper. Launch the Map Assist app and type "nothing" in the search field, select the Absolutely Nothing app. This fixes accidental short presses of the win key launching the assistant app, unfortunately long presses of the win key will still launch the assistant app selection setting, at least on Samsung devices, I do not yet have a solution for this.
+
 #### Disabling Vendor Extensions
 
 First, install Apk Analyzer by Martin Styk.
@@ -405,7 +407,7 @@ Here are some essential keyboard shortcuts for Android:
 
 .
 
-In the overview screen, you can move an app up to close it, or double click or slide it down to open it.
+In the overview screen, you can move an app up to close it, or click or slide it down to open it.
 
 If you enabled immersive mode with SystemUI Tuner as per this guide, the home gesture will require swiping up from the bottom twice. But it's easier to just press win + enter on the keyboard.
 
