@@ -475,7 +475,7 @@ fi
 3. In Termux, run:
 
 ```bash
-pkg in -y tigervnc lxqt qterminal xcompmgr
+pkg in -y tigervnc lxqt qterminal xcompmgr adwaita-icon-theme
 ```
 .
 
@@ -570,6 +570,8 @@ vncserver -fg
 1. In LXQT, go to `Preferences -> LXQT Settings -> Appearance` and set the following:
 
 `LXQT Theme`: Dark.
+
+`Icons Theme`: Adwaita.
 
 `LXQT Theme -> Font -> DPI`: set to 168 for 175% scale or a multiple of 96 (which is 100%) for your chosen scale.
 
