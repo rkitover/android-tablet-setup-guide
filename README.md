@@ -585,7 +585,7 @@ Under `Widget Style` set:
 
 .
 
-2. Right click on the panel, select `Configure Panel`. Go to `Widgets`. Remove any or all of the following if desired: desktop changer, quick launch and show desktop.
+2. Right click on the panel, select `Configure Panel`. Go to `Widgets`. Remove the following if desired: desktop changer and show desktop.
 
 3. Right click on the panel, select `Configure Panel -> Panel`, select `auto-hide`, deselect `visible thin margin`.
 
