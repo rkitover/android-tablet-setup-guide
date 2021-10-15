@@ -715,12 +715,12 @@ Under `Keybindings for running applications` paste the following:
 
 This gives you the following keybinds:
 
-| Action     | Keybind            |
-|------------|--------------------|
-| Maximize   | ctrl + alt + up    |
-| Minimize   | ctrl + alt + down  |
-| Tile Right | ctrl + alt + right |
-| Tile Left  | ctrl + alt + left  |
+| Action                    | Keybind            |
+|---------------------------|--------------------|
+| Toggle Maximize/Restore   | ctrl + alt + up    |
+| Minimize                  | ctrl + alt + down  |
+| Tile Right                | ctrl + alt + right |
+| Tile Left                 | ctrl + alt + left  |
 
 .
 
