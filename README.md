@@ -422,6 +422,10 @@ pkg in -y unstable-repo x11-repo
 pkg up -y
 pkg in -y termux-api openssh man curl pulseaudio bash-completion
 termux-setup-storage
+ln -s /storage/emulated/0/Documents ~/Documents
+ln -s /storage/emulated/0/Download ~/Downloads
+ln -s /storage/emulated/0/Music ~/Music
+ln -s /storage/emulated/0/Pictures ~/Pictures
 ```
 .
 You will be asked to grant permission to access storage to Termux, allow it.
